@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import ProductForm from "../components/ProductForm";
 import ProductTable from "../components/ProductTable";
+import Navbar from "../components/Navbar";
 
 function Product() {
   const [productName, setProductName] = useState("");
@@ -29,21 +30,27 @@ function Product() {
   };
 
   return (
-    <main className="flex justify-between mx-20 mt-10 gap-10">
-      <ProductForm
-        productName={productName}
-        price={price}
-        quantity={quantity}
-        status={status}
-        setProductName={setProductName}
-        setPrice={setPrice}
-        setQuantity={setQuantity}
-        setStatus={setStatus}
-        handleSubmit={handleSubmit}
-      />
+    <>
+      <header className="pt-8">
+        <Navbar />
+      </header>
 
-      <ProductTable products={products} />
-    </main>
+      <main className="flex justify-between mx-20 mt-10 gap-10">
+        <ProductForm
+          productName={productName}
+          price={price}
+          quantity={quantity}
+          status={status}
+          setProductName={setProductName}
+          setPrice={setPrice}
+          setQuantity={setQuantity}
+          setStatus={setStatus}
+          handleSubmit={handleSubmit}
+        />
+
+        <ProductTable products={products} />
+      </main>
+    </>
   );
 }
 

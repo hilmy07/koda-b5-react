@@ -3,7 +3,7 @@ import React from "react";
 function Character({ filtered }) {
   return (
     <>
-      <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 px-6 ml-20 mb-24">
+      <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-4 px-6 place-items-center">
         {filtered.length > 0 ? (
           filtered.map((item) => (
             <div

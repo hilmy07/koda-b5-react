@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import SearchForm from "../components/SearchForm";
 import Character from "../components/Character";
+import Navbar from "../components/Navbar";
 
 function Card() {
   const [search, setSearch] = useState("");
@@ -28,11 +29,17 @@ function Card() {
 
   return (
     <>
-      {/* Search Form */}
-      <SearchForm search={search} setSearch={setSearch} />
-
-      {/* Cards Grid */}
-      <Character filtered={filtered} />
+      <div className="min-h-screen bg-blue-200 w-full pt-8 pb-18">
+        <Navbar />
+        {/* Search Form */}
+        <SearchForm
+          search={search}
+          setSearch={setSearch}
+          characters={characters}
+        />
+        {/* Cards Grid */}
+        <Character filtered={filtered} />
+      </div>
     </>
   );
 }

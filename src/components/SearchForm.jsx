@@ -1,23 +1,37 @@
-// import React, { useState } from "react";
-
-function SearchForm({ search, setSearch }) {
+function SearchForm({ search, setSearch, characters }) {
   return (
-    <>
-      <form className="my-6 ml-16 flex gap-2">
-        <div className="relative flex-1">
-          <input
-            type="text"
-            placeholder="Search by name or type..."
-            value={search}
-            onChange={(e) => setSearch(e.target.value)}
-            className="inputSearch w-[95%] p-2 pr-10 border border-gray-400 rounded-lg bg-white"
-          />
-          <span className="absolute right-24 top-1/2 -translate-y-1/2 text-gray-500">
-            <i className="fa-solid fa-magnifying-glass"></i>
-          </span>
-        </div>
-      </form>
-    </>
+    // <form className="my-6 flex justify-center gap-2 w-full">
+    //   <div className="flex-1">
+    //     <select
+    //       value={search}
+    //       onChange={(e) => setSearch(e.target.value)}
+    //       className="inputSearch w-[70%] p-2 pr-10 border border-gray-400 rounded-lg bg-white"
+    //     >
+    //       <option value="">Pilih karakter...</option>
+
+    //       {characters.map((item) => (
+    //         <option key={item.id} value={item.name}>
+    //           {item.name}
+    //         </option>
+    //       ))}
+    //     </select>
+    //   </div>
+    // </form>
+    <form className="my-6 flex justify-center w-full">
+      <select
+        value={search}
+        onChange={(e) => setSearch(e.target.value)}
+        className="w-[70%] p-2 pr-10 border border-gray-400 rounded-lg bg-white"
+      >
+        <option value="">Pilih karakter...</option>
+
+        {characters.map((item) => (
+          <option key={item.id} value={item.name}>
+            {item.name}
+          </option>
+        ))}
+      </select>
+    </form>
   );
 }
 
