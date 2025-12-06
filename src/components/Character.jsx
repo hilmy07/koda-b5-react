@@ -1,6 +1,6 @@
 import React from "react";
 
-function Character({ filtered }) {
+function Character({ filtered, onClick }) {
   return (
     <>
       <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-4 px-6 place-items-center">
@@ -9,6 +9,7 @@ function Character({ filtered }) {
             <div
               key={item.id}
               className="bg-white w-full max-w-[250px] h-[300px] rounded-lg shadow-md flex flex-col items-center px-4 py-3"
+              onClick={(e) => onClick(e, item)}
             >
               <img
                 src={item.image}
