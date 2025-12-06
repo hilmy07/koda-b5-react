@@ -1,4 +1,9 @@
 function SearchForm({ search, setSearch, status, setStatus, characters }) {
+  const resetFilter = () => {
+    setSearch("");
+    setStatus("");
+  };
+
   return (
     <form className="my-6 flex flex-col md:flex-row justify-center gap-4 w-full px-4">
       {/* Filter NAMA */}
@@ -27,6 +32,15 @@ function SearchForm({ search, setSearch, status, setStatus, characters }) {
         <option value="dead">Dead</option>
         <option value="unknown">Unknown</option>
       </select>
+
+      {/* BUTTON RESET */}
+      <button
+        type="button"
+        onClick={resetFilter}
+        className="w-full md:w-[15%] p-2 bg-green-500 text-white rounded-lg hover:bg-blue-600"
+      >
+        Reset
+      </button>
     </form>
   );
 }
