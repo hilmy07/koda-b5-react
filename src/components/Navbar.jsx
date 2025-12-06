@@ -12,7 +12,7 @@ function Navbar() {
             <a href="#contact">Contact</a> */}
           <Link to="/home">About</Link>
           <Link to="/product">Product</Link>
-          <Link to="/card">Character</Link>
+          <Link to="/characters">Character</Link>
         </nav>
       </header>
     </>
