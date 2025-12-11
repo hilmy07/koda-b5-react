@@ -1,27 +1,47 @@
 import React, { useState } from "react";
+import { useContext } from "react";
+import { UserContext } from "../contexts/UserContext";
+import { useNavigate } from "react-router";
 
 function Login() {
+  const navigate = useNavigate();
   //   const [email, setEmail] = useState("");
   //   const [password, setPassword] = useState("");
+  const { dispatch } = useContext(UserContext);
+  const [error, setError] = useState("");
   const [form, setForm] = useState({
     email: "",
     password: "",
   });
+
+  const validUser = {
+    username: "admin@mail.com",
+    password: "123456",
+  };
 
   const [showPassword, setShowPassword] = useState(false);
 
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    const data = { email: form.email, password: form.password };
-    console.log(data);
-  };
+    if (
+      form.email !== validUser.username ||
+      form.password !== validUser.password
+    ) {
+      setError("Email atau password salah!");
+      return;
+    }
 
-  //   const onChangeHandler = (e) => {
-  //     setForm((form) => {
-  //       return { ...form, [e.target.name]: e.target.value };
-  //     });
-  //   };
+    dispatch({
+      type: "LOGIN",
+      payload: {
+        username: form.email,
+        profile_photo: "/avatar.png",
+      },
+    });
+
+    navigate("/characters");
+  };
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-[url('/image.png')] bg-cover bg-center px-4">
@@ -30,7 +50,7 @@ function Login() {
         onSubmit={handleSubmit}
       >
         <h1 className="text-2xl font-bold text-center mb-6">Login</h1>
-
+        {error && <p style={{ color: "red" }}>{error}</p>}
         {/* Email */}
         <div className="mb-4">
           <label htmlFor="email" className="block font-medium mb-1">

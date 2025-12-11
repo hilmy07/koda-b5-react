@@ -46,6 +46,7 @@ function Card() {
     <>
       <div className="min-h-screen bg-blue-200 w-full pt-8 pb-18">
         <Navbar />
+        {/* <button></button> */}
         {/* Search Form */}
         <SearchForm
           search={search}
